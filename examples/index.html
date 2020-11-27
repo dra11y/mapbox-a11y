@@ -22,7 +22,7 @@
     });
 
     map.on('load', () => {
-      map.addControl(new MapboxAccessibility({
+      map.addControl(new MapboxA11y({
         accessibleLabelProperty: 'name',
         layers: [
           'poi-label',

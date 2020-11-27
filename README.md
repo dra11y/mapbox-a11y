@@ -12,7 +12,7 @@ A more sophisticated accessibility control for [mapbox-gl-js](https://github.com
 
 
 map.on('load', () => {
-  map.addControl(new MapboxAccessibility({
+  map.addControl(new MapboxA11y({
 
     // A string value representing a property key in the data. This
     // will be used as the text in voiceover.

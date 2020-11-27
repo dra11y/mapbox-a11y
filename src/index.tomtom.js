@@ -69,7 +69,7 @@ export default class MapboxAccessibility {
   }
 
   queryTomTom = () => {
-    let url = 'https://api.tomtom.com/search/2/categorySearch/.json?key=8WHkZGIo6j06oWkKkcaoA3muKU4VYPyr&categorySet=7315,9361,7332&limit=100&topLeft=' + this.nw[1] + ',' + this.nw[0] + '&btmRight=' + this.se[1] + ',' + this.se[0];
+    let url = 'https://api.tomtom.com/search/2/categorySearch/.json?key=TOMTOM_API_KEY&categorySet=7315,9361,7332&limit=100&topLeft=' + this.nw[1] + ',' + this.nw[0] + '&btmRight=' + this.se[1] + ',' + this.se[0];
     console.log(url);
     return;
 

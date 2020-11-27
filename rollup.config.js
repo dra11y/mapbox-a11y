@@ -5,13 +5,13 @@ import commonjs from '@rollup/plugin-commonjs';
 export default {
   input: ['src/index.js'],
   output: [{
-    name: 'MapboxAccessibility',
+    name: 'MapboxA11y',
     file: 'dist/mapbox-gl-a11y.js',
     format: 'umd',
     sourcemap: true,
     indent: false,
   }, /* disable examples for now {
-    name: 'MapboxAccessibility',
+    name: 'MapboxA11y',
     file: 'examples/mapbox-gl-a11y.js',
     format: 'umd',
     sourcemap: true,
