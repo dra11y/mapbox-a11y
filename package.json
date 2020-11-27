@@ -1,7 +1,7 @@
 {
-  "name": "@mapbox/mapbox-gl-accessibility",
+  "name": "@mapbox/mapbox-gl-a11y",
   "version": "0.0.1",
-  "description": "An accessibility control for Mapbox GL JS",
+  "description": "A more sophisticated fork of mapbox-gl-accessibility",
   "main": "index.js",
   "scripts": {
     "start:server": "serve",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/mapbox/mapbox-gl-accessibility.git"
+    "url": "git+ssh://git@github.com/tgrushka/mapbox-gl-a11y.git"
   },
   "author": "Mapbox",
   "license": "ISC",
@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "@turf/bbox": "^6.0.1",
+    "@turf/centroid": "^6.0.2",
     "lodash": "^4.17.15",
     "xtend": "^4.0.2"
   },

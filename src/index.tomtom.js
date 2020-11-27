@@ -3,7 +3,7 @@
 import xtend from 'xtend';
 import centroid from '@turf/centroid';
 
-export default class MapboxA11y {
+export default class MapboxAccessibility {
   constructor(options) {
     const defaultOptions = {
       width: 0.002,
@@ -66,6 +66,42 @@ export default class MapboxA11y {
     this.cursor.style.height = `${pix_height}px`;
     this.cursor.style.top = `${tl.y}px`;
     this.cursor.style.left = `${tl.x}px`;
+  }
+
+  queryTomTom = () => {
+    let url = 'https://api.tomtom.com/search/2/categorySearch/.json?key=8WHkZGIo6j06oWkKkcaoA3muKU4VYPyr&categorySet=7315,9361,7332&limit=100&topLeft=' + this.nw[1] + ',' + this.nw[0] + '&btmRight=' + this.se[1] + ',' + this.se[0];
+    console.log(url);
+    return;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        /*
+        Restaurant                  7315
+        Shop                        9361
+        Market                      7332
+        Park and Recreation Area    9362
+        Public Transportation Stop  9942
+        */
+        let restaurants = data.results.filter(r => {
+          return r.poi.categories.includes('restaurant');
+        }).length;
+        let shops = data.results.filter(r => {
+          return r.poi.categories.includes('shop');
+        }).length;
+        let markets = data.results.filter(r => {
+          return r.poi.categories.includes('market');
+        }).length;
+        console.log(data);
+
+        this.label = `Found ${restaurants} restaurants, ${shops} shops, and ${markets} markets.`;
+        if (this.cursor.getAttribute('aria-label') == this.label) {
+          this.label += ' . ';
+        }
+        this.cursor.setAttribute('aria-label', this.label);
+        this.cursor.setAttribute('title', this.label);
+        console.log(this.label);
+      });
   }
 
   announceFeatures = () => {
@@ -318,7 +354,7 @@ export default class MapboxA11y {
     this.cursor.setAttribute('aria-label', '');
     this.cursor.setAttribute('aria-live', 'polite');
     this.cursor.style.display = 'block';
-    this.cursor.className = 'mapboxgl-a11y-cursor';
+    this.cursor.className = 'mapboxgl-accessibility-marker';
 
     this.cursor.addEventListener('keydown', this.keydown);
 
@@ -340,6 +376,7 @@ export default class MapboxA11y {
 
     setTimeout(() => {
       this.announceFeatures();
+      // this.queryTomTom();
     }, 200);
   }
 

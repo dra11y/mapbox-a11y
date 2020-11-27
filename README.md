@@ -1,24 +1,15 @@
-Mapbox GL Accessibility Plugin
+Mapbox GL A11y Plugin
 ---
 
-[![Build Status](https://travis-ci.com/mapbox/mapbox-gl-accessibility.svg?branch=publisher-production)](https://travis-ci.com/mapbox/mapbox-gl-accessibility)
+A more sophisticated accessibility control for [mapbox-gl-js](https://github.com/mapbox/mapbox-gl-js).
 
-An accessibility control for [mapbox-gl-js](https://github.com/mapbox/mapbox-gl-js).
+### TODO: Demo
 
-__Note:__ This is a work in progress and we welcome contributions. See [issues](https://github.com/mapbox/mapbox-gl-accessibility/issues) to learn what needs to be worked on!
-
-### Demo
-
-<a href="https://vimeo.com/375772633/22ce0b9ed1" target="_blank"><img src="https://user-images.githubusercontent.com/6026447/69743104-b8655480-10f2-11ea-8621-f59e8e4f41ef.png" width=300></a>
-
-1. Go to https://labs.mapbox.com/mapbox-gl-accessibility
-2. Enable voice-over in your browser
-3. Press tab to hear the result
-
-### Usage
+### TODO: Usage
 
 ```js
 // Should be run after the map has been initialized
+
 
 map.on('load', () => {
   map.addControl(new MapboxAccessibility({
@@ -38,10 +29,10 @@ map.on('load', () => {
 });
 ```
 
-`MapboxAccessibility` will locate features that belong to layers cooresponding to the `layers` option array and add button elements to the map. To hide these visually but still allow them to be picked up by a screen reader, add the following CSS to your page:
+`MapboxA11y` will locate features that belong to layers cooresponding to the `layers` option array and add button elements to the map. To hide these visually but still allow them to be picked up by a screen reader, add the following CSS to your page:
 
 ```css
-.mapboxgl-accessibility-marker {
+.mapboxgl-a11y-cursor {
   background: transparent;
   margin: 0;
   padding: 0;
@@ -51,7 +42,7 @@ map.on('load', () => {
   position: fixed;
 }
 
-.mapboxgl-accessibility-marker:focus {
+.mapboxgl-a11y-cursor:focus {
   border: 2px solid black;
 }
 ```

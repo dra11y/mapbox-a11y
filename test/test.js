@@ -41,7 +41,7 @@ test('MapboxAccessibility: basic', t => {
     }));
 
     window.setTimeout(() => {
-      const marker = map.getCanvasContainer().querySelector('.mapboxgl-accessibility-marker');
+      const marker = map.getCanvasContainer().querySelector('.mapboxgl-a11y-cursor');
       t.notEquals(marker, null, 'accessible element was found');
       t.equals(marker.getAttribute('tabindex'), '0', 'tabindex is set');
       t.equals(typeof marker.getAttribute('title'), 'string', 'title is set');
@@ -81,7 +81,7 @@ test('MapboxAccessibility: polygon', t => {
     }));
 
     window.setTimeout(() => {
-      const marker = map.getCanvasContainer().querySelector('.mapboxgl-accessibility-marker');
+      const marker = map.getCanvasContainer().querySelector('.mapboxgl-a11y-cursor');
 
       t.notEquals(marker, null, 'accessible element was found');
 
